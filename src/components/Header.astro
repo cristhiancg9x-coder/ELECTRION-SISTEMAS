@@ -1,0 +1,108 @@
+---
+const now = new Date();
+const dateOptions: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+const formattedDate = now.toLocaleDateString('es-PE', dateOptions);
+---
+
+<header class="newspaper-header container">
+  <div class="header-top">
+    <div class="edition">Edición Sur: Arequipa y Moquegua</div>
+    <div class="date">{formattedDate}</div>
+    <div class="contact">
+      <a href="https://wa.me/51951413458" target="_blank" rel="noopener noreferrer">Tel: +51 951 413 458</a>
+    </div>
+  </div>
+  
+  <h1 class="newspaper-title">ElectriOn Sistemas</h1>
+  <p class="newspaper-subtitle">Sistemas Eléctricos de Alta Confiabilidad por Especialistas</p>
+  
+  <hr class="divider-double" />
+  
+  <nav class="main-nav">
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+  
+  <hr class="divider-single" />
+</header>
+
+<style>
+  .newspaper-header {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .newspaper-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    margin: 1rem 0 0.25rem;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+  
+  .newspaper-subtitle {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: #444;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-serif);
+  }
+  
+  .divider-double {
+    border: 0;
+    border-top: 4px double var(--color-border);
+    margin: 1rem 0;
+  }
+  
+  .main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .main-nav a {
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+  }
+  
+  .main-nav a:hover {
+    background-color: transparent;
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 640px) {
+    .header-top {
+      flex-direction: column;
+      align-items: center;
+    }
+    .main-nav ul {
+      gap: 1rem;
+    }
+  }
+</style>

@@ -1,11 +1,267 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Servicios dummy para iterar en la vista de artículos
+const servicios = [
+  {
+    titulo: "Instalaciones Residenciales",
+    descripcion: "Diseño y ejecución de cableado estructurado para hogares. Seguridad garantizada desde el tablero principal hasta el último tomacorriente.",
+    etiqueta: "HogarSeguro"
+  },
+  {
+    titulo: "Mantenimiento Industrial",
+    descripcion: "Revisión de tableros trifásicos, motores y corrección del factor de potencia para evitar penalidades energéticas.",
+    etiqueta: "Industria"
+  },
+  {
+    titulo: "Sistemas de Puesta a Tierra",
+    descripcion: "Construcción y medición de pozos a tierra con protocolo certificado, protegiendo vidas y equipos sensibles.",
+    etiqueta: "Protección"
+  },
+  {
+    titulo: "Iluminación Eficiente",
+    descripcion: "Proyectos de iluminación LED comercial y residencial. Cálculo lumínico para máxima eficiencia sin sombras indeseadas.",
+    etiqueta: "Ahorro"
+  }
+];
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title="Inicio">
+  <Header />
+
+  <main class="container">
+    <!-- HERO SECTION -->
+    <section id="inicio" class="hero-section">
+      <div class="hero-content">
+        <h2>Alta Ingeniería Eléctrica a tu Alcance</h2>
+        <p class="lead">Soluciones precisas para problemas complejos. Evite riesgos de cortocircuitos y fallas energéticas con un especialista que garantiza normativas internacionales en cada empalme.</p>
+        <a href="#contacto" class="btn">Solicitar Inspección Técnica</a>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <hr class="divider" />
+
+    <!-- SERVICES SECTION -->
+    <section id="servicios" class="services-section">
+      <div class="section-header">
+        <h2>Sistemas Eléctricos</h2>
+        <p>Especialidades técnicas para cada requerimiento</p>
+      </div>
+
+      <div class="grid grid-cols-2">
+        {servicios.map(servicio => (
+          <article class="service-card">
+            <span class="tag">{servicio.etiqueta}</span>
+            <h3>{servicio.titulo}</h3>
+            <p>{servicio.descripcion}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <hr class="divider" />
+
+    <!-- LOCATION & CONTACT SECTION -->
+    <section id="ubicacion" class="location-section">
+      <div class="grid grid-cols-2">
+        <div class="location-info">
+          <h2>Cobertura <span>Sur del Perú</span></h2>
+          <p class="lead-small">Atención prioritaria y despliegue rápido para emergencias en nuestras zonas de influencia directa.</p>
+          
+          <ul class="places-list">
+            <li>
+              <strong>Arequipa:</strong> Ciudad Blanca y alrededores. Especialistas residenciales.
+            </li>
+            <li>
+              <strong>Moquegua:</strong> Ciudad industrial y costa. Proyectos de alta potencia.
+            </li>
+          </ul>
+        </div>
+        
+        <div id="contacto" class="contact-box">
+          <div class="box-inner">
+            <h3>Línea Directa</h3>
+            <p>Comuníquese directamente con el maestro electricista. Presupuestos transparentes antes de iniciar la obra.</p>
+            <div class="huge-number">+51 951 413 458</div>
+            <a href="https://wa.me/51951413458" class="btn btn-solid" target="_blank" rel="noopener noreferrer">Contactar vía WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <WhatsAppButton />
+</BaseLayout>
+
+<style>
+  /* Local Component Styles */
+  .hero-section {
+    padding: 3rem 0;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero-content h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    border: none;
+    margin-bottom: 1.5rem;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    font-family: var(--font-serif);
+    color: #444;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border: 2px solid var(--color-text);
+    color: var(--color-text);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+  }
+
+  .btn-solid {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    width: 100%;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
+  .btn-solid:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+  /* Services Grid */
+  .services-section {
+    padding: 2rem 0;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-header h2 {
+    border-bottom: none;
+  }
+
+  .section-header p {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: #555;
+  }
+
+  .service-card {
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-color: var(--color-text);
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 0.2rem;
+  }
+
+  /* Location & Contact */
+  .location-section {
+    padding: 2rem 0;
+  }
+
+  .location-info h2 span {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .lead-small {
+    font-size: 1.1rem;
+    color: #444;
+  }
+
+  .places-list {
+    list-style-type: square;
+    padding-left: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .places-list li {
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+  }
+
+  .contact-box {
+    padding: 0.5rem;
+    background: repeating-linear-gradient(
+      45deg,
+      var(--color-border),
+      var(--color-border) 10px,
+      transparent 10px,
+      transparent 20px
+    );
+  }
+
+  .box-inner {
+    background-color: var(--color-bg);
+    padding: 3rem 2rem;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .box-inner h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .huge-number {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-family: var(--font-serif);
+    font-weight: 900;
+    margin: 1.5rem 0;
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 768px) {
+    .service-card {
+      padding: 1.5rem;
+    }
+    .box-inner {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>

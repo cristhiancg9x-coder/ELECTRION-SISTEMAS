@@ -1,0 +1,55 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="newspaper-footer">
+  <div class="container">
+    <hr class="divider" />
+    <div class="footer-content grid grid-cols-2">
+      <div class="footer-info">
+        <h3>ElectriOn Sistemas</h3>
+        <p>Expertos en instalaciones eléctricas de alta precisión y seguridad industrial y residencial.</p>
+        <p><strong>Ubicaciones:</strong> Arequipa, Moquegua</p>
+      </div>
+      <div class="footer-contact">
+        <h3>Contacto Rápido</h3>
+        <p>¿Requiere asistencia técnica o una cotización?</p>
+        <p><strong>WhatsApp / Teléfono:</strong> <a href="https://wa.me/51951413458" target="_blank" rel="noopener noreferrer">+51 951 413 458</a></p>
+        <p>Respondemos emergencias y mantenimientos programados.</p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; {year} ElectriOn Sistemas. Todos los derechos reservados. Diseñado para ofrecer la máxima confiabilidad eléctrica.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .newspaper-footer {
+    padding: 3rem 0;
+    margin-top: 4rem;
+    background-color: var(--color-bg);
+  }
+  
+  .footer-content {
+    margin-bottom: 2rem;
+  }
+  
+  h3 {
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid var(--color-border);
+    padding-top: 1.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #555;
+    text-transform: uppercase;
+    font-family: var(--font-sans);
+  }
+</style>
