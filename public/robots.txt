@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://electrion-sistemas.netlify.app/sitemap-index.xml
