@@ -6,7 +6,7 @@ interface Props {
 	description?: string;
 }
 
-const { title, description = "Venta e instalación de sistemas eléctricos de alta confiabilidad por un electricista profesional en Arequipa y Moquegua, Perú." } = Astro.props;
+const { title, description = "Ingeniería y desarrollo de proyectos eléctricos industriales: automatización de hornos de poliuretano, prensas termo-eléctricas y sistemas de control. Cobertura en Arequipa, Moquegua y todo el Perú." } = Astro.props;
 ---
 
 <!doctype html>
@@ -16,23 +16,24 @@ const { title, description = "Venta e instalación de sistemas eléctricos de al
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="google-site-verification" content="w3ssfq4RyBc5a5N856gWO4jVprcvQ3S4b9bdPdgEU1s" />
 		
 		<!-- SEO Basics -->
-		<title>{title} | ElectriOn Sistemas</title>
+		<title>{title} | ElectriOn Sistemas Industriales</title>
 		<meta name="description" content={description} />
 		<meta name="robots" content="index, follow" />
 		<link rel="canonical" href={Astro.url.href} />
 		
 		<!-- Open Graph -->
-		<meta property="og:title" content={`${title} | ElectriOn Sistemas`} />
+		<meta property="og:title" content={`${title} | ElectriOn Sistemas Industriales`} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={Astro.url.href} />
 		
-		<!-- JSON-LD for Local Business -->
+		<!-- JSON-LD for Local Business / Engineering -->
 		<script type="application/ld+json" set:html={JSON.stringify({
 			  "@context": "https://schema.org",
-			  "@type": "Electrician",
+			  "@type": "EngineeringBusiness",
 			  "name": "ElectriOn Sistemas",
 			  "description": description,
 			  "telephone": "+51951413458",
@@ -44,6 +45,10 @@ const { title, description = "Venta e instalación de sistemas eléctricos de al
 			    {
 			      "@type": "City",
 			      "name": "Moquegua"
+			    },
+			    {
+			      "@type": "Country",
+			      "name": "Peru"
 			    }
 			  ],
 			  "address": {
@@ -52,10 +57,10 @@ const { title, description = "Venta e instalación de sistemas eléctricos de al
 			  }
 		})} />
 		
-		<!-- Google Fonts -->
+		<!-- Google Fonts for Technical Blueprint B2B Theme -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<slot />

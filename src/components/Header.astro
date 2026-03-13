@@ -1,75 +1,70 @@
 ---
-const now = new Date();
-const dateOptions: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-const formattedDate = now.toLocaleDateString('es-PE', dateOptions);
 ---
 
-<header class="newspaper-header container">
-  <div class="header-top">
-    <div class="edition">Edición Sur: Arequipa y Moquegua</div>
-    <div class="date">{formattedDate}</div>
-    <div class="contact">
-      <a href="https://wa.me/51951413458" target="_blank" rel="noopener noreferrer">Tel: +51 951 413 458</a>
+<header class="tech-header">
+  <div class="container header-container">
+    <div class="brand">
+      <a href="/" class="logo">
+        <img src="/favicon.svg" alt="ElectriOn Logo" width="28" height="28" class="logo-icon" />
+        <span class="logo-text">ElectriOn <span class="highlight">Sistemas</span></span>
+      </a>
+    </div>
+    
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#proyectos">Proyectos Industriales</a></li>
+        <li><a href="#capacidades">Capacidades</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    
+    <div class="header-actions">
+      <a href="#contacto" class="btn btn-primary btn-sm">Solicitar Evaluación</a>
     </div>
   </div>
-  
-  <h1 class="newspaper-title">ElectriOn Sistemas</h1>
-  <p class="newspaper-subtitle">Sistemas Eléctricos de Alta Confiabilidad por Especialistas</p>
-  
-  <hr class="divider-double" />
-  
-  <nav class="main-nav">
-    <ul>
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#ubicacion">Ubicación</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </nav>
-  
-  <hr class="divider-single" />
 </header>
 
 <style>
-  .newspaper-header {
-    margin-top: 1.5rem;
-    margin-bottom: 2rem;
-    text-align: center;
+  .tech-header {
+    background-color: rgba(7, 19, 36, 0.95); /* Deep navy, slightly transparent */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 1rem 0;
   }
   
-  .header-top {
+  .header-container {
     display: flex;
     justify-content: space-between;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid var(--color-border);
-    padding-bottom: 0.5rem;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
     gap: 0.5rem;
+    text-decoration: none;
   }
   
-  .newspaper-title {
-    font-size: clamp(3rem, 8vw, 6rem);
-    margin: 1rem 0 0.25rem;
-    line-height: 1;
-    letter-spacing: -0.03em;
+  .logo-icon {
+    font-size: 1.5rem;
+  }
+  
+  .logo-text {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
     text-transform: uppercase;
+    letter-spacing: -0.02em;
   }
   
-  .newspaper-subtitle {
-    font-size: 1.25rem;
-    font-style: italic;
-    color: #444;
-    margin-bottom: 1.5rem;
-    font-family: var(--font-serif);
-  }
-  
-  .divider-double {
-    border: 0;
-    border-top: 4px double var(--color-border);
-    margin: 1rem 0;
+  .highlight {
+    color: var(--accent-cyan);
   }
   
   .main-nav ul {
@@ -77,32 +72,47 @@ const formattedDate = now.toLocaleDateString('es-PE', dateOptions);
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center;
     gap: 2rem;
-    flex-wrap: wrap;
   }
   
   .main-nav a {
-    text-decoration: none;
-    font-weight: 600;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 500;
     text-transform: uppercase;
-    font-size: 0.9rem;
     letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    position: relative;
+    padding: 0.5rem 0;
+  }
+  
+  .main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-cyan);
+    transition: width 0.3s ease;
   }
   
   .main-nav a:hover {
-    background-color: transparent;
-    color: var(--color-accent);
-    text-decoration: underline;
+    color: var(--text-primary);
   }
   
-  @media (max-width: 640px) {
-    .header-top {
-      flex-direction: column;
-      align-items: center;
-    }
-    .main-nav ul {
-      gap: 1rem;
+  .main-nav a:hover::after {
+    width: 100%;
+  }
+  
+  .btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  @media (max-width: 900px) {
+    .main-nav {
+      display: none; /* Mobile menu logic pending */
     }
   }
 </style>

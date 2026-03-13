@@ -2,54 +2,130 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="newspaper-footer">
+<footer class="tech-footer" id="nosotros">
   <div class="container">
-    <hr class="divider" />
-    <div class="footer-content grid grid-cols-2">
-      <div class="footer-info">
-        <h3>ElectriOn Sistemas</h3>
-        <p>Expertos en instalaciones eléctricas de alta precisión y seguridad industrial y residencial.</p>
-        <p><strong>Ubicaciones:</strong> Arequipa, Moquegua</p>
+    <div class="footer-grid grid grid-cols-2">
+      <div class="footer-brand">
+        <h3><span class="logo-icon">⚡</span> ElectriOn <span class="highlight">Sistemas</span></h3>
+        <p class="brand-desc">Ingeniería especializada en el diseño, arquitectura e implementación de sistemas eléctricos industriales llave en mano.</p>
+        <p class="tech-data"><span class="label-tech">ZONAS DE OPERACIÓN:</span> Arequipa, Moquegua y Proyectos a Nivel Nacional</p>
       </div>
+      
       <div class="footer-contact">
-        <h3>Contacto Rápido</h3>
-        <p>¿Requiere asistencia técnica o una cotización?</p>
-        <p><strong>WhatsApp / Teléfono:</strong> <a href="https://wa.me/51951413458" target="_blank" rel="noopener noreferrer">+51 951 413 458</a></p>
-        <p>Respondemos emergencias y mantenimientos programados.</p>
+        <h4 class="label-tech">Contacto de Ingeniería</h4>
+        <p>¿Requiere evaluar la viabilidad de un proyecto de automatización o electrificación industrial?</p>
+        <a href="https://wa.me/51951413458" target="_blank" rel="noopener noreferrer" class="contact-link">
+          <span class="icon">✆</span> +51 951 413 458
+        </a>
+        <p class="tech-data mt-2">Atención a plantas industriales, minería y manufactura.</p>
       </div>
     </div>
     
     <div class="footer-bottom">
-      <p>&copy; {year} ElectriOn Sistemas. Todos los derechos reservados. Diseñado para ofrecer la máxima confiabilidad eléctrica.</p>
+      <div class="system-status">
+        <span class="status-indicator"></span> SISTEMA EN LÍNEA
+      </div>
+      <p>&copy; {year} ElectriOn Sistemas. Todos los derechos reservados.</p>
     </div>
   </div>
 </footer>
 
 <style>
-  .newspaper-footer {
-    padding: 3rem 0;
-    margin-top: 4rem;
-    background-color: var(--color-bg);
+  .tech-footer {
+    background-color: var(--bg-panel);
+    border-top: 1px solid var(--border-color);
+    padding: 4rem 0 2rem;
+    margin-top: 5rem;
   }
   
-  .footer-content {
-    margin-bottom: 2rem;
+  .footer-grid {
+    margin-bottom: 3rem;
   }
   
   h3 {
-    text-transform: uppercase;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     margin-bottom: 1rem;
-    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+  
+  .highlight {
+    color: var(--accent-cyan);
+  }
+  
+  .brand-desc {
+    max-width: 400px;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
+  
+  .tech-data {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    opacity: 0.8;
+  }
+  
+  .mt-2 {
+    margin-top: 1rem;
+  }
+  
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    color: var(--accent-cyan);
+    margin: 1rem 0;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .contact-link:hover {
+    color: #fff;
+    text-shadow: 0 0 10px var(--accent-cyan-dim);
   }
   
   .footer-bottom {
-    border-top: 1px solid var(--color-border);
-    padding-top: 1.5rem;
-    text-align: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
     font-size: 0.85rem;
-    color: #555;
     text-transform: uppercase;
-    font-family: var(--font-sans);
+    color: var(--text-secondary);
+    opacity: 0.7;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .system-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-cyan);
+  }
+  
+  .status-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent-cyan);
+  }
+  
+  @media (max-width: 768px) {
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
   }
 </style>

@@ -4,91 +4,139 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 
-// Servicios dummy para iterar en la vista de artículos
-const servicios = [
+// B2B Industrial Systems
+const proy_industriales = [
   {
-    titulo: "Instalaciones Residenciales",
-    descripcion: "Diseño y ejecución de cableado estructurado para hogares. Seguridad garantizada desde el tablero principal hasta el último tomacorriente.",
-    etiqueta: "HogarSeguro"
+    titulo: "Sistemas Térmicos para Hornos Industriales",
+    descripcion: "Diseño, cálculo y automatización de sistemas de calentamiento para hornos de curado de poliuretano y secado industrial. Control PID de alta precisión.",
+    etiqueta: "TERMO-ELÉCTRICA",
+    icon: "🔥"
   },
   {
-    titulo: "Mantenimiento Industrial",
-    descripcion: "Revisión de tableros trifásicos, motores y corrección del factor de potencia para evitar penalidades energéticas.",
-    etiqueta: "Industria"
+    titulo: "Automatización de Prensas Hidráulicas",
+    descripcion: "Integración de circuitos de potencia y control térmico con resistencias de cartucho o banda para prensas de vulcanizado y termoformado.",
+    etiqueta: "MAQUINARIA PESADA",
+    icon: "⚙️"
   },
   {
-    titulo: "Sistemas de Puesta a Tierra",
-    descripcion: "Construcción y medición de pozos a tierra con protocolo certificado, protegiendo vidas y equipos sensibles.",
-    etiqueta: "Protección"
+    titulo: "Ingeniería de Tableros de Control",
+    descripcion: "Armado de tableros eléctricos (CCM y PLC) bajo normativas IEC/NEMA. Integración de variadores de frecuencia y contactores de estado sólido.",
+    etiqueta: "AUTOMATIZACIÓN",
+    icon: "🎛️"
   },
   {
-    titulo: "Iluminación Eficiente",
-    descripcion: "Proyectos de iluminación LED comercial y residencial. Cálculo lumínico para máxima eficiencia sin sombras indeseadas.",
-    etiqueta: "Ahorro"
+    titulo: "Actualización de Sistemas (Retrofit)",
+    descripcion: "Modernización de sistemas de control obsoletos en líneas de producción antiguas, migrando a relés inteligentes y HMI para mayor eficiencia.",
+    etiqueta: "MODERNIZACIÓN",
+    icon: "🔄"
   }
 ];
 ---
 
-<BaseLayout title="Inicio">
+<BaseLayout title="Ingeniería en Sistemas Eléctricos Industriales">
   <Header />
 
   <main class="container">
     <!-- HERO SECTION -->
-    <section id="inicio" class="hero-section">
-      <div class="hero-content">
-        <h2>Alta Ingeniería Eléctrica a tu Alcance</h2>
-        <p class="lead">Soluciones precisas para problemas complejos. Evite riesgos de cortocircuitos y fallas energéticas con un especialista que garantiza normativas internacionales en cada empalme.</p>
-        <a href="#contacto" class="btn">Solicitar Inspección Técnica</a>
+    <section id="inicio" class="hero-tech">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <span class="label-tech">ESPECIALISTAS B2B</span>
+          <h1>Ingeniería de <span class="highlight">Potencia y Control</span> Industrial</h1>
+          <p class="lead-tech">Diseñamos e implementamos sistemas eléctricos completos para maquinaria pesada, plantas de producción y procesos térmicos especializados.</p>
+          <div class="hero-actions">
+            <a href="#proyectos" class="btn btn-primary">Catálogo de Soluciones</a>
+            <a href="#contacto" class="btn btn-outline">Coordinar Inspección</a>
+          </div>
+        </div>
+        
+        <div class="hero-visual">
+          <!-- Stylized Technical Blueprint Graphic -->
+          <div class="blueprint-graphic">
+            <div class="circuit-line line-1"></div>
+            <div class="circuit-line line-2"></div>
+            <div class="circuit-line line-3"></div>
+            <div class="node node-a"></div>
+            <div class="node node-b"></div>
+            <div class="node node-c"></div>
+            <div class="data-box">SYS_READY</div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- SECTION DIVIDER -->
     <hr class="divider" />
 
-    <!-- SERVICES SECTION -->
-    <section id="servicios" class="services-section">
-      <div class="section-header">
-        <h2>Sistemas Eléctricos</h2>
-        <p>Especialidades técnicas para cada requerimiento</p>
+    <!-- CAPABILITIES / PROJECTS SECTION -->
+    <section id="proyectos" class="systems-section">
+      <div class="section-heading">
+        <h2>Capacidades del Sistema</h2>
+        <p class="subtitle-tech">Desarrollo llave en mano para optimización de procesos térmicos y motrices.</p>
       </div>
 
       <div class="grid grid-cols-2">
-        {servicios.map(servicio => (
-          <article class="service-card">
-            <span class="tag">{servicio.etiqueta}</span>
-            <h3>{servicio.titulo}</h3>
-            <p>{servicio.descripcion}</p>
+        {proy_industriales.map(proy => (
+          <article class="technical-panel">
+            <div class="panel-header">
+              <span class="tech-icon">{proy.icon}</span>
+              <span class="label-tech">{proy.etiqueta}</span>
+            </div>
+            <h3>{proy.titulo}</h3>
+            <p>{proy.descripcion}</p>
           </article>
         ))}
       </div>
     </section>
 
-    <!-- SECTION DIVIDER -->
+    <!-- METRICS / TRUST SECTION -->
+    <section id="capacidades" class="metrics-section">
+      <div class="technical-panel metrics-panel">
+        <div class="grid grid-cols-3">
+          <div class="metric">
+            <div class="metric-value">IEC</div>
+            <div class="metric-label">Estándares Internacionales</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">PID</div>
+            <div class="metric-label">Control Térmico Exacto</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">24x7</div>
+            <div class="metric-label">Soporte Operativo</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <hr class="divider" />
 
-    <!-- LOCATION & CONTACT SECTION -->
-    <section id="ubicacion" class="location-section">
-      <div class="grid grid-cols-2">
-        <div class="location-info">
-          <h2>Cobertura <span>Sur del Perú</span></h2>
-          <p class="lead-small">Atención prioritaria y despliegue rápido para emergencias en nuestras zonas de influencia directa.</p>
+    <!-- CONTACT SECTION -->
+    <section id="contacto" class="contact-section">
+      <div class="grid grid-cols-2 align-center">
+        <div class="contact-info">
+          <span class="label-tech">ATENCIÓN CORPORATIVA</span>
+          <h2>Inicie su <span class="highlight">Proyecto Industrial</span></h2>
+          <p>Nuestros ingenieros estructurales están listos para analizar los diagramas unifilares y térmicos de su próxima máquina o línea de ensamble.</p>
           
-          <ul class="places-list">
-            <li>
-              <strong>Arequipa:</strong> Ciudad Blanca y alrededores. Especialistas residenciales.
-            </li>
-            <li>
-              <strong>Moquegua:</strong> Ciudad industrial y costa. Proyectos de alta potencia.
-            </li>
-          </ul>
+          <div class="tech-specs-list">
+            <div class="spec-row">
+              <span class="spec-term">Cobertura:</span>
+              <span class="spec-def">Arequipa, Moquegua y Proyectos de Envergadura Nacional</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-term">Tiempo de Respuesta:</span>
+              <span class="spec-def">&lt; 24 Horas para Plantas Industriales</span>
+            </div>
+          </div>
         </div>
         
-        <div id="contacto" class="contact-box">
-          <div class="box-inner">
-            <h3>Línea Directa</h3>
-            <p>Comuníquese directamente con el maestro electricista. Presupuestos transparentes antes de iniciar la obra.</p>
-            <div class="huge-number">+51 951 413 458</div>
-            <a href="https://wa.me/51951413458" class="btn btn-solid" target="_blank" rel="noopener noreferrer">Contactar vía WhatsApp</a>
+        <div class="contact-action">
+          <div class="technical-panel cta-panel">
+            <h3 class="text-center">Línea Técnica Directa</h3>
+            <div class="phone-display">+51 951 413 458</div>
+            <a href="https://wa.me/51951413458" class="btn btn-primary btn-block" target="_blank" rel="noopener noreferrer">
+              INICIAR PROTOCOLO DE COMUNICACIÓN
+            </a>
           </div>
         </div>
       </div>
@@ -100,168 +148,218 @@ const servicios = [
 </BaseLayout>
 
 <style>
-  /* Local Component Styles */
-  .hero-section {
-    padding: 3rem 0;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
+  /* Hero Section */
+  .hero-tech {
+    padding: 6rem 0 4rem;
   }
 
-  .hero-content h2 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    border: none;
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
     margin-bottom: 1.5rem;
   }
 
-  .lead {
+  .highlight {
+    color: var(--accent-cyan);
+  }
+
+  .lead-tech {
     font-size: 1.25rem;
-    font-family: var(--font-serif);
-    color: #444;
-    margin-bottom: 2.5rem;
-    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    max-width: 600px;
   }
 
-  .btn {
-    display: inline-block;
-    padding: 1rem 2rem;
-    border: 2px solid var(--color-text);
-    color: var(--color-text);
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    transition: all 0.3s ease;
+  .hero-actions {
+    display: flex;
+    gap: 1.5rem;
   }
 
-  .btn:hover {
-    background-color: var(--color-text);
-    color: var(--color-bg);
-  }
-
-  .btn-solid {
-    background-color: var(--color-text);
-    color: var(--color-bg);
+  /* Blueprint Graphic Simulation */
+  .blueprint-graphic {
     width: 100%;
-    text-align: center;
-    margin-top: 1.5rem;
+    height: 400px;
+    border: 1px solid var(--accent-cyan);
+    position: relative;
+    background-color: var(--bg-panel);
+    overflow: hidden;
   }
 
-  .btn-solid:hover {
-    background-color: var(--color-accent);
-    border-color: var(--color-accent);
+  .circuit-line {
+    position: absolute;
+    background-color: var(--accent-cyan);
+    box-shadow: 0 0 8px var(--accent-cyan-dim);
   }
 
-  /* Services Grid */
-  .services-section {
-    padding: 2rem 0;
+  .line-1 { top: 20%; left: 0; width: 60%; height: 2px; }
+  .line-2 { top: 20%; left: 60%; width: 2px; height: 40%; }
+  .line-3 { top: 60%; left: 60%; width: 40%; height: 2px; }
+
+  .node {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: var(--bg-dark);
+    border: 2px solid var(--accent-cyan);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
   }
 
-  .section-header {
-    text-align: center;
+  .node-a { top: 20%; left: 0; }
+  .node-b { top: 20%; left: 60%; }
+  .node-c { top: 60%; left: 100%; }
+
+  .data-box {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    font-family: var(--font-mono);
+    color: var(--accent-cyan);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    padding: 0.5rem;
+    border: 1px dashed var(--accent-cyan);
+  }
+
+  /* Systems Section */
+  .systems-section {
+    padding: 4rem 0;
+  }
+
+  .section-heading {
     margin-bottom: 3rem;
   }
 
-  .section-header h2 {
-    border-bottom: none;
+  .subtitle-tech {
+    font-family: var(--font-mono);
+    color: var(--text-secondary);
   }
 
-  .section-header p {
-    font-family: var(--font-serif);
-    font-style: italic;
-    color: #555;
+  .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
   }
 
-  .service-card {
-    padding: 2rem;
-    border: 1px solid var(--color-border);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: #fff;
+  .tech-icon {
+    font-size: 2rem;
   }
 
-  .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    border-color: var(--color-text);
-  }
-
-  .tag {
-    display: inline-block;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-weight: 700;
+  .technical-panel h3 {
+    font-size: 1.25rem;
     margin-bottom: 1rem;
-    border-bottom: 2px solid var(--color-accent);
-    padding-bottom: 0.2rem;
   }
 
-  /* Location & Contact */
-  .location-section {
+  /* Metrics Section */
+  .metrics-section {
     padding: 2rem 0;
   }
 
-  .location-info h2 span {
-    font-style: italic;
-    font-weight: 400;
-  }
-
-  .lead-small {
-    font-size: 1.1rem;
-    color: #444;
-  }
-
-  .places-list {
-    list-style-type: square;
-    padding-left: 1.5rem;
-    margin-top: 2rem;
-  }
-
-  .places-list li {
-    margin-bottom: 1rem;
-    font-size: 1.05rem;
-  }
-
-  .contact-box {
-    padding: 0.5rem;
-    background: repeating-linear-gradient(
-      45deg,
-      var(--color-border),
-      var(--color-border) 10px,
-      transparent 10px,
-      transparent 20px
-    );
-  }
-
-  .box-inner {
-    background-color: var(--color-bg);
-    padding: 3rem 2rem;
+  .metrics-panel {
     text-align: center;
-    height: 100%;
+  }
+
+  .metric-value {
+    font-family: var(--font-mono);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .metric-label {
+    font-size: 0.9rem;
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Contact Section */
+  .contact-section {
+    padding: 2rem 0 6rem;
+  }
+
+  .align-center {
+    align-items: center;
+  }
+
+  .tech-specs-list {
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .spec-row {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-light);
   }
 
-  .box-inner h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+  .spec-term {
+    flex: 0 0 40%;
+    font-family: var(--font-mono);
+    color: var(--accent-cyan);
   }
 
-  .huge-number {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-family: var(--font-serif);
-    font-weight: 900;
-    margin: 1.5rem 0;
-    color: var(--color-accent);
+  .spec-def {
+    flex: 1;
+    color: var(--text-primary);
   }
 
-  @media (max-width: 768px) {
-    .service-card {
-      padding: 1.5rem;
+  .cta-panel {
+    text-align: center;
+  }
+
+  .phone-display {
+    font-family: var(--font-mono);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 2rem 0;
+    letter-spacing: 0.05em;
+  }
+
+  .btn-block {
+    display: block;
+    width: 100%;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  /* Mobile Adjustments */
+  @media (max-width: 900px) {
+    .hero-grid, .contact-section .grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
     }
-    .box-inner {
-      padding: 2rem 1.5rem;
+
+    .hero-tech {
+      padding: 3rem 0;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .metrics-panel .grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .hero-actions {
+      flex-direction: column;
+    }
+    
+    .spec-row {
+      flex-direction: column;
+      gap: 0.5rem;
     }
   }
 </style>
